@@ -46,6 +46,39 @@ class LinkedList {
     return currNode;
   }
 
+  insertBefore(item, key) {
+    //If empty, insert
+    if (this.head === null) {
+      this.insertFirst(item);
+    }
+
+    // If key is the first node
+    if (this.head.value === key) {
+      this.insertFirst(item);
+      return;
+    }
+
+    // Find node with key
+    let currNode  = this.head;
+    let previousNode = this.head;
+    let newNode;
+    
+    while((currNode !== null) && (currNode.value !== key)) {
+      // Save the previous node
+      previousNode = currNode;
+      currNode = currNode.next;
+    }
+    
+    if (currNode === null) { 
+      console.log(`Item '${key}' not found`);
+      return;
+    }
+    // Point the newNode to Node with key
+    newNode = new _Node(item, currNode)
+    // Point the previousNode to the newNode between it and currNode
+    previousNode.next = newNode;
+  }
+
   remove(item) {
     // If the list is empty
     if (!this.head) {
