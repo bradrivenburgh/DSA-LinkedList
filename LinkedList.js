@@ -67,6 +67,7 @@ class LinkedList {
       previousNode = currNode;
       currNode = currNode.next;
     }
+    
     if (currNode === null) { 
       console.log('Item not found');
       return;
@@ -74,3 +75,5 @@ class LinkedList {
     previousNode.next = currNode.next;
   }
 }
+
+module.exports = LinkedList;
