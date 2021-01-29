@@ -10,7 +10,8 @@ function main() {
   SLL.insertLast('Starbuck');
   SLL.insertLast('Tauhida');
   SLL.remove('Husker');
-  SLL.insertBefore('IM NEW BITCH', 'Husker');
+  SLL.insertBefore('INSERTBEFORE', 'Boomer');
+  SLL.insertAfter('INSERTAFTER', 'Tauhida');
 
   return SLL;
 

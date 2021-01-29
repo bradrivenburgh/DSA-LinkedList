@@ -50,6 +50,7 @@ class LinkedList {
     //If empty, insert
     if (this.head === null) {
       this.insertFirst(item);
+      return;
     }
 
     // If key is the first node
@@ -77,6 +78,35 @@ class LinkedList {
     newNode = new _Node(item, currNode)
     // Point the previousNode to the newNode between it and currNode
     previousNode.next = newNode;
+  }
+
+  insertAfter(item, key) {
+    //If empty, insert
+    if (this.head === null) {
+      this.insertFirst(item);
+      return;
+    }
+
+    // Find the node
+    const nodeToFind = this.find(key);
+
+    // If not found
+    if (!nodeToFind) {
+      console.log(`Item '${key}' not found`);
+      return;
+    }
+
+    // If last node
+    if (nodeToFind.next === null) {
+      nodeToFind.next = new _Node(item, null)
+      return;
+    }
+
+    // Point the newNode to node following nodeToFind
+    let newNode = new _Node(item, nodeToFind.next)
+   
+    // Point nodeToFind to newNode
+    nodeToFind.next = newNode;
   }
 
   remove(item) {
