@@ -50,6 +50,7 @@ class LinkedList {
   insertFirst(item) {
     this.head = new _Node(item, this.head);
     this.length++;
+    return this.head;
   }
 
   insertLast(item) {
@@ -173,11 +174,9 @@ class LinkedList {
       this.length--;
       return;
     }
-    // Start at the head
-    let currNode  = this.head;
-    // Keep track of the previous node
-    let previousNode = this.head;
     
+    let currNode = this.head; // Start at the head
+    let previousNode = this.head; // Start at the head
     while((currNode !== null) && (currNode.value !== item)) {
       // Save the previous node
       previousNode = currNode;
@@ -188,6 +187,7 @@ class LinkedList {
       console.log('Item not found');
       return;
     }
+
     previousNode.next = currNode.next;
     this.length--;
   }
